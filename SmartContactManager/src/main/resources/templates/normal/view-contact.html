@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::Layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+
+    <!--    Content Start-->
+    <div th:if="${contact}"  class="container">
+        <div id="contactData" th:value="${contact.id}" style="display: none;"></div>
+        <div class="card profileViewCard">
+            <div class="card-header text-center profileViewCardHeader">
+                <a th:href="@{'/user/all-contact/'+${currentPage}}"><i class="ri-arrow-drop-left-line"></i></a>
+                <button type="button" class="profileUpdatebtn btn btn-lg btn-warning" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">UPDATE CONTACT
+                </button>
+                <img class="viewContactProfilePic" th:src="@{'/image/'+${contact.imageUrl}}" alt="">
+                <h1 th:text="${contact.name}"></h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-responsive text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col" th:text="${'SCMUSER'+contact.id}"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th th:text="Name" scope="row"></th>
+                        <td th:text="${contact.name}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nickname</th>
+                        <td th:text="${contact.nickName}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td th:text="${contact.email}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Work</th>
+                        <td th:text="${contact.work}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone Number</th>
+                        <td th:text="${contact.phoneNumber}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td th:utext="${contact.description}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+        <!-- Modal Start-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Contact Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="updateContactDetailsForm" th:action="@{'/user/contact/'+${contact.id}+'/update-details'}"
+                          method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <table class="table table-responsive text-center">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#ID</th>
+                                    <th scope="col" th:text="${'SCMUSER'+contact.id}"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th th:text="Name" scope="row"></th>
+                                    <td>
+                                        <input th:value="${contact.name}" class="form-control" type="text" name="name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nickname</th>
+                                    <td>
+                                        <input th:value="${contact.nickName}" class="form-control" type="text"
+                                               name="nickName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>
+                                        <input th:value="${contact.email}" class="form-control" type="email"
+                                               name="email">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Work</th>
+                                    <td>
+                                        <input th:value="${contact.work}" class="form-control" type="text" name="work">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Phone Number</th>
+                                    <td>
+                                        <input th:value="${contact.phoneNumber}" class="form-control" type="text"
+                                               name="phoneNumber">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Description</th>
+                                    <td>
+                                <textarea th:value="${contact.description}"
+                                          class="form-control" name="description"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Profile Pic</th>
+                                    <td>
+                                        <input name="image" class="form-control" type="file" id="formFile">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--    Modal end-->
+
+
+    </div>
+    <!--    Content end-->
+     <h1 th:unless="${contact}" class="bg-danger text-white mt-4 contactNotFound" >You are not authorized to view this contact...</h1>
+</section>
+</body>
+</html>

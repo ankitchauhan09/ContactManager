@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section class="signupsection">
+
+    <div class="signUpContainer">
+
+        <div id="leftSignUpContainer">
+            <h1>Welcome Back!</h1>
+            <h3>To see all your saved contacts and records please login using your personal info</h3>
+            <button class="btn btn-lg">SIGN IN</button>
+        </div>
+        <div id="rightSignUpContainer">
+
+            <h1>Create Account</h1>
+            <p>Enter your details for the registration</p>
+
+            <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+                <span th:text="${session.message.content}"></span>
+                <th:block th:text="${@sessionHelper.removeSessionAttribute('message')}"></th:block>
+            </div>
+
+            <div class="container">
+                <form novalidate th:action="@{/register-user}" method="post" class="row g-3" th:object="${user}">
+                    <div class="col-md-12">
+                        <label for="name" class="form-label">Name</label>
+                        <input th:value="${user.name}" type="text" name="name" class="form-control" id="name"
+                               th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}">
+                        <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input th:value="${user.email}"  type="email" name="email" class="form-control" id="email"
+                               th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+                        >
+                        <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input  th:value="${user.password}" type="password" name="password" class="form-control" id="password" th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}">
+                        <div class="invalid-feedback" th:each="e : ${#fields.errors('password')}" th:text="${e}">
+                        </div>
+
+                    </div>
+                    <div class="col-12">
+                        <label for="image" class="form-label">Profile Pic</label>
+                        <input  th:value="${user.imageUrl}"  type="file" name="imageUrl" id="image" class="form-control" style="color: #3AB399"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="about" class="form-label">About YourSelf</label>
+                        <textarea  th:value="${user.description}" class="form-control" name="description" id="about"></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        Choose your role<br><br>
+                        <label for="admin" class="form-label">Admin</label>
+                        <input type="radio" name="role" id="admin" value="ROLE_ADMIN" th:classappend="${#fields.hasErrors('role') ? 'is-invalid' : ''}">
+                        <label for="user" class="form-label">User</label>
+
+                        <input type="radio" name="role" id="user" value="ROLE_USER" th:classappend="${#fields.hasErrors('role') ? 'is-invalid' : ''}">
+                        <div class="invalid-feedback" th:each="e : ${#fields.errors('role')}" th:text="${e}">
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-lg">SIGN UP</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: #e2e2e2;
+}
+
+.background-primary {
+    background-color: #427D9D;
+}
+
+/*Home Page Section Designing*/
+
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../image/homePageSectionBackground.jpg");
+    background-size: cover;
+    color: white;
+    height: 95vh;
+    width: 100%;
+}
+
+/*SignUp page Designing*/
+
+.signupsection {
+    padding: 30px;
+    /*overflow-y: s;*/
+}
+
+.signUpContainer {
+    margin: 50px;
+    border: 2px solid #427D9D;
+    border-radius: 30px;
+    /*padding: 20px;*/
+    background-color: #427D9D;
+    display: flex;
+    color: white;
+    flex-direction: row;
+}
+
+.signUpContainer #leftSignUpContainer, #rightSignUpContainer {
+    /*border : 2px solid black;*/
+    padding: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUpContainer #rightSignUpContainer {
+    background-color: white;
+    color: #427D9D;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+.signUpContainer #leftSignUpContainer {
+    gap: 30px;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.signUpContainer #leftSignUpContainer h1 {
+    font-size: 90px;
+}
+
+.signUpContainer #leftSignUpContainer h3 {
+    font-size: 30px;
+}
+
+.signUpContainer #leftSignUpContainer button {
+    background-color: transparent;
+    border: 6px solid #ffff;
+    border-radius: 30px;
+    width: 40%;
+    color: white;
+    transition: linear 0.4s;
+    font-weight: bold;
+}
+
+.signUpContainer #rightSignUpContainer button {
+    background-color: transparent;
+    border: 6px solid #427D9D;
+    border-radius: 30px;
+    width: 40%;
+    color: #427D9D;
+    transition: linear 0.4s;
+    font-weight: bold;
+}
+
+.signUpContainer #leftSignUpContainer button:hover {
+    cursor: pointer;
+    color: #427D9D;
+    border-color: #427D9D;
+    background-color: white;
+}
+
+.signUpContainer #rightSignUpContainer button:hover {
+    cursor: pointer;
+    color: white;
+    border-color: white;
+    background-color: #427D9D;
+}
+
+/*Login page styling*/
+#loginForm button {
+    background-color: transparent;
+    border: 6px solid #427D9D;
+    border-radius: 30px;
+    width: 40%;
+    color: #427D9D;
+    transition: linear 0.4s;
+    font-weight: bold;
+}
+
+#loginForm button:hover {
+    cursor: pointer;
+    color: white;
+    border-color: transparent;
+    background-color: #427D9D;
+}
+
+.LoginFormCard {
+    width: 50%;
+    transform: translate(50%, 50%);
+
+    padding: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #427D9D;
+    border-radius: 30px;
+    /*border-bottom-right-radius: 30px;*/
+}
+
+#loginForm h1 {
+    font-size: 90px;
+}
+
+#loginForm h3 {
+    font-size: 30px;
+}
+
+
+/*User dashboard sideBar*/
+
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+.sidebar {
+    /*display: block;*/
+    position: relative;
+    background: white;
+    height : 100vh;
+    padding-top: 40px;
+    position: fixed;
+    width: 20%;
+    /*transition: opacity 0.5s ease-in-out;*/
+    border: 2px solid black;
+}
+
+.sidebar a{
+    list-style: none;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5%;
+    padding: 10px 50px 20px 5px;
+    margin-left: 30px ;
+    text-decoration: none;
+    color: black;
+}
+
+.divider{
+    background: rgba(128, 128, 128,0.8);
+    box-shadow: 0px 2px 2px black;
+    height: 1px;
+    width: 100%;
+}
+
+.sidebar a:hover{
+    background: #c7c6c6;
+}
+
+.content {
+    margin-top: 12px;
+    height: 100%;
+    /*height : 300vh;*/
+    /*border: 2px solid red;*/
+    /*width: */
+    margin-left: 22%;
+}
+
+.sidebar i{
+    margin-right : 10px;
+}
+
+.sidebar .crossBtn{
+    position: absolute;
+    /*font-size:  2000px;*/
+    top : 0px;
+    margin-bottom: 5px;
+    right : 20px;
+    font-size: 36px;
+    cursor: pointer;
+    text-align: right;
+}
+
+#addContactButton{
+    background: #427D9D;
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
+    padding: 10px;
+    border-radius: 50px;
+    border: 5px solid white;
+    transition : linear 0.4s;
+    width: 40%;
+}
+
+
+
+#addContactButton:hover{
+    background: white;
+    color: #427D9D;
+    border-color: #427D9D;
+}
+
+#addContactForm{
+    border: 2px solid black;
+    padding: 50px;
+    border-radius: 40px;
+    background: #427D9D;
+    color: white;
+    text-align: center;
+}
+
+.allContactProfilePic{
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.viewContactProfilePic{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    /*background-color: black;*/
+    filter: drop-shadow(10px 5px 10px black);
+}
+
+.profileViewCard .card-header{
+    position: relative;
+}
+
+.profileUpdatebtn{
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    color : white;
+    font-weight: bold;
+}
+
+.viewContactMainDiv{
+    margin-top: 100px;
+}
+
+.profileViewCardHeader i{
+    font-size: 90px;
+    position: absolute;
+    left: 0;
+    filter: drop-shadow(0.5px 0.5px 1px black);
+    color: black;
+    top: -20px;
+}
+
+.contactNotFound{
+    padding : 10px;
+    text-align: center;
+    font-size: 50px;
+    margin-right: 10px;
+
+}
+
+.search-container{
+    position: relative;
+}
+
+.search-result{
+    position: absolute;
+    display: none ;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+}
+
+.active{
+    background-color: #427D9D !important;
+    color: white !important;
+}
+
+
+.dashboard-parent{
+    display: flex;
+    height: 800px;
+    align-items: center;
+    /*background-color: pink;*/
+    justify-content: center;
+}
+
+.dashBoard-container{
+
+    /*background-color: white;*/
+}
+
+.forgotPasswordField{
+    position: relative;
+}
+
+.forgotPasswordField img{
+    position: absolute;
+    height: 30px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.forgotEmailOTP{
+    width: 50%;
+    transform: translate(50%, 30%);
+
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #427D9D;
+    border-radius: 30px;
+    /*border-bottom-right-radius: 30px;*/
+}

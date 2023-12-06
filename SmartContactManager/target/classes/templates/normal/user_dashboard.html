@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::Layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+
+    <div class="dashboard-parent">
+        <div class="dashBoard-container container text-center">
+            <h1 class="mb-3">
+                Welcome to the Smart Contact Manager
+            </h1>
+            <p>Here you can store all your favourite contacts at a single place and can easily manage, customize,
+                arrange and search the contacts...</p>
+            <p>We have provided you range of customization options.... Hope you will like it... <br> Regards <br>Ankit
+                Chauhan</p>
+        </div>
+
+
+    </div>
+    <h3 class="my-3">Donate Us</h3>
+    <input id="paymentAmount" type="text" class="form-control" placeholder="Enter amount here ">
+    <br>
+    <div class="container text-center">
+        <button onclick="paymentStarted()" id="paymentButton" class="btn btn-success btn-block">Pay</button>
+    </div>
+    <script>
+        $('.item').removeClass('active');
+        $('#home-link').addClass('active');
+    </script>
+</section>
+</body>
+</html>
